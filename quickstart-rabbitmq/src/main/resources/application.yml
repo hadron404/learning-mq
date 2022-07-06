@@ -1,0 +1,11 @@
+server:
+  port: 80
+spring:
+  application:
+    name: quickstart-rabbitmq
+  rabbitmq:
+    host: localhost # default localhost
+    port: 5672 # default 5672
+    username: guest # default guest
+    password: guest # default guest
+

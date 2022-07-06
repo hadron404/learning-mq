@@ -1,0 +1,26 @@
+
+== docker 安装 rabbitmq
+
+1.拉取镜像
+----
+docker pull rabbitmq:management
+----
+
+2.启动容器，运行 rabbitmq
+----
+docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq-management rabbitmq:management
+----
+
+3.访问 http://+{ip}+:{port}/
+
+此处port = 15672, ip= 127.0.0.1
+默认账号密码： guest/guest
+
+== 参考文献
+RabbitMQ 系列之三 - rabbitmq-management
+关于 rabbit management 的一些定义和概念
+https://www.jianshu.com/p/7b6e575fd451
+
+Docker 系列之 RabbitMQ 安装部署教程
+安装过程说明比较清晰明朗 相关 docker 命令有足够的解释
+https://cloud.tencent.com/developer/article/1612598

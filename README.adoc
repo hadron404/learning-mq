@@ -1,0 +1,19 @@
+Learning 系列 记录技术的学习过程
+
+此篇为学习mq的记录
+
+MQ
+
+主流MQ
+* pulsar
+* Kafka
+* rocketMQ
+* RabbitMQ
+* ActiveMQ
+mq的一些分析和趋势 https://www.zhihu.com/question/449611434
+
+
+RabbitMQ
+RabbitMQ 与 Erlang 的版本对应关系 https://www.rabbitmq.com/which-erlang.html
+
+

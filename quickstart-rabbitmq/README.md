@@ -1,12 +1,25 @@
 
-## 运行环境
+## Run Environment
 
 * JDK `17.0.2`
 * Spring Boot `2.7.1`
 
 
+## Help Guide
 
-## 遇见到的异常
+### 0 [Gradle 构建 Spring Boot 项目使用指南](https://zhuanlan.zhihu.com/p/92706843)
+
+### 1 [SpringBoot 整合 RabbitMQ 实战](https://blog.csdn.net/qq_38837032/article/details/121138866)
+* 说明 Maven 下 SpringBoot 与 RabbitMQ 的集成与运行
+* 最基础的使用MQ测试
+* 分析消息乱码的原因及解决方案
+* 一些常见的RabbitMQ的使用方式
+
+### 2 [RabbitMQ 全量配置说明](https://zhuanlan.zhihu.com/p/145336656)
+
+### 3 [RabbitMQ 各种工作模式实现案例](https://cloud.tencent.com/developer/article/1775294)
+### 4 [RabbitMQ 的工作模式图解](https://www.cnblogs.com/Jeely/p/10784013.html)
+## Exceptions
 
 IDEA中编译运行报 `无效的源发行版：17` 警告信息
 可能的处理手段

@@ -22,7 +22,7 @@ public class DelayConsumer {
 	@RabbitListener(queues = QueueNames.TEST_DEAD)
 	public void receive(Message receive, Channel channel) throws IOException {
 		String messageBody = new String(receive.getBody());
-		String msg = "ReceiveTime: " + LocalDateTime.now() + "Receive Message: " + messageBody;
+		String msg = "Receive Message: " + messageBody + " Receive at: " + LocalDateTime.now();
 		// throw new RuntimeException("接收消息处理异常");
 		// 处理消息
 		System.out.println(msg);

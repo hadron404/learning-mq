@@ -12,6 +12,6 @@ class DelayProducerTest {
 
 	@Test
 	void send() {
-		producer.send("123456789");
+		producer.send("2");
 	}
 }

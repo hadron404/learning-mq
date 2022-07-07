@@ -25,7 +25,7 @@ public class DelayProducer implements Producer {
 
 	@Override
 	public void send(String message) {
-		int ttl = 20;
+		int ttl = 3;
 		MessageProperties messageProperties = new MessageProperties();
 		messageProperties.setExpiration(String.valueOf(ttl * 1000));
 		Message sendMessage = new Message(message.getBytes(), messageProperties);

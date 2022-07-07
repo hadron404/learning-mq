@@ -22,6 +22,8 @@
 ### 6 [消费者补偿幂等问题](https://www.cnblogs.com/toov5/p/10287183.html)
 ### 7 [RoutingKey详解](https://www.yisu.com/zixun/457019.html)
 ### 8 [RabbitMQ消息发送与接收](https://www.cnblogs.com/qlqwjy/p/13923237.html)
+
+### 9 [实现重试次数](https://www.jianshu.com/p/4904c609632f)
 * Rabbit模型
 
 

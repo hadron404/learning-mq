@@ -1,7 +1,6 @@
 package com.example.quickstartrabbitmq.config;
 
-import com.example.quickstartrabbitmq.constants.ExchangeNames;
-import com.example.quickstartrabbitmq.constants.QueueNames;
+import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.context.annotation.Bean;
@@ -18,11 +17,11 @@ public class QueueTTLInitialization {
 
 	@Bean
 	public Queue testTTL() {
-		return QueueBuilder.durable(QueueNames.TEST_TTL)
+		return QueueBuilder.durable(DelayTaskConfig.TEST.getTtlQueue())
 			// x-dead-letter-exchange    这里声明当前队列绑定的死信交换机
-			.deadLetterExchange(ExchangeNames.DLX.getName())
+			.deadLetterExchange(DelayTaskConfig.TEST.getDlxName())
 			// x-dead-letter-routing-key  这里声明当前队列的死信路由key
-			.deadLetterRoutingKey(QueueNames.TEST_DEAD)
+			.deadLetterRoutingKey(DelayTaskConfig.TEST.getDeadQueue())
 			.build();
 		// x-message-ttl  声明队列的TTL
 	}

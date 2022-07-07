@@ -1,5 +1,6 @@
 package com.example.quickstartrabbitmq.config;
 
+import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
 import com.example.quickstartrabbitmq.constants.QueueNames;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,6 @@ public class QueueInitialization {
 
 	@Bean
 	public Queue testDead() {
-		return new Queue(QueueNames.TEST_DEAD, true);
+		return new Queue(DelayTaskConfig.TEST.getDeadQueue(), true);
 	}
 }

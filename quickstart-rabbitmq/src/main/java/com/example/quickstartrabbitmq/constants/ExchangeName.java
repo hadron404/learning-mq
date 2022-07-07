@@ -6,10 +6,10 @@ package com.example.quickstartrabbitmq.constants;
  * @author zhouqiang
  * @since 2022/7/6
  */
-public enum ExchangeNames {
+public enum ExchangeName {
 	DLX("dlx.default");
 
-	ExchangeNames(String name) {
+	ExchangeName(String name) {
 		this.name = name;
 	}
 

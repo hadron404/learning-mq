@@ -1,6 +1,6 @@
 package com.example.quickstartrabbitmq.config;
 
-import com.example.quickstartrabbitmq.constants.QueueNames;
+import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -21,6 +21,6 @@ public class ExchangeQueueBinding {
 	Binding bindingTestDead(Queue testDead, DirectExchange defaultDLX) {
 		return BindingBuilder.bind(testDead)
 			.to(defaultDLX)
-			.with(QueueNames.TEST_DEAD);
+			.with(DelayTaskConfig.TEST.getDeadQueue());
 	}
 }

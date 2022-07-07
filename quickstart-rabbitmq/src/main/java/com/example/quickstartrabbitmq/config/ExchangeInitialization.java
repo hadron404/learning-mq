@@ -1,6 +1,6 @@
 package com.example.quickstartrabbitmq.config;
 
-import com.example.quickstartrabbitmq.constants.ExchangeNames;
+import com.example.quickstartrabbitmq.constants.ExchangeName;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +24,6 @@ public class ExchangeInitialization {
 	 */
 	@Bean
 	public DirectExchange defaultDLX() {
-		return new DirectExchange(ExchangeNames.DLX.getName(), true, false);
+		return new DirectExchange(ExchangeName.DLX.getName(), true, false);
 	}
 }

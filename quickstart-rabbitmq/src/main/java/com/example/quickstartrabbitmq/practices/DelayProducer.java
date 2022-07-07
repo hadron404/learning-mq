@@ -1,6 +1,6 @@
 package com.example.quickstartrabbitmq.practices;
 
-import com.example.quickstartrabbitmq.constants.QueueNames;
+import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
 import com.example.quickstartrabbitmq.workmode.Producer;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
@@ -25,13 +25,13 @@ public class DelayProducer implements Producer {
 
 	@Override
 	public void send(String message) {
-		int ttl = 3;
+		long ttl = DelayTaskConfig.TEST.getTtl();
 		MessageProperties messageProperties = new MessageProperties();
 		messageProperties.setExpiration(String.valueOf(ttl * 1000));
 		Message sendMessage = new Message(message.getBytes(), messageProperties);
 		System.out.println("Message publish at :" + LocalDateTime.now());
 		System.out.println("Expect receive at: " + LocalDateTime.now().plusSeconds(ttl));
-		this.rabbitTemplate.convertAndSend(QueueNames.TEST_TTL, sendMessage);
+		this.rabbitTemplate.convertAndSend(DelayTaskConfig.TEST.getTtlQueue(), sendMessage);
 	}
 
 }

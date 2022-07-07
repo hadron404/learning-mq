@@ -20,8 +20,8 @@ public class QueueInitialization {
 		return new Queue(QueueNames.TEST, true);
 	}
 
-	@Bean
-	public Queue testDead() {
-		return new Queue(DelayTaskConfig.TEST.getDeadQueue(), true);
-	}
+	// @Bean
+	// public Queue testDead() {
+	// 	return new Queue(DelayTaskConfig.TEST.getDeadQueue(), true);
+	// }
 }

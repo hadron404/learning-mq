@@ -24,6 +24,9 @@
 ### 8 [RabbitMQ消息发送与接收](https://www.cnblogs.com/qlqwjy/p/13923237.html)
 ### 9 [实现重试次数](https://www.jianshu.com/p/4904c609632f)
 ### 10 [代码创建Queue、Exchange、Binding](https://zhuanlan.zhihu.com/p/75710822)
+### 11 [Delay-Message 插件实现 RabbitMQ 延迟队列](https://zhuanlan.zhihu.com/p/121083535)
+### 12 [RabbitMQ延时任务实现](https://blog.csdn.net/Sadlay/article/details/87161615)
+### 13 [动态创建Queue、Exchange、Binding](https://blog.csdn.net/qq_28533563/article/details/107025629)
 * Rabbit模型
 
 

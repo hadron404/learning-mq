@@ -22,8 +22,8 @@ public class ExchangeInitialization {
 	 * DirectExchange：按照routing-key分发到指定队列
 	 * TopicExchange：多关键字匹配
 	 */
-	@Bean
-	public DirectExchange defaultDLX() {
-		return new DirectExchange(ExchangeName.DLX.getName(), true, false);
-	}
+	// @Bean
+	// public DirectExchange defaultDLX() {
+	// 	return new DirectExchange(ExchangeName.DLX.getName(), true, false);
+	// }
 }

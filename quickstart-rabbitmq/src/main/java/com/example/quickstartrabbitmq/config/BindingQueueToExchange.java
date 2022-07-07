@@ -17,10 +17,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BindingQueueToExchange {
 
-	@Bean
-	Binding bindingTestDead(Queue testDead, DirectExchange defaultDLX) {
-		return BindingBuilder.bind(testDead)
-			.to(defaultDLX)
-			.with(DelayTaskConfig.TEST.getDeadQueue());
-	}
+	// @Bean
+	// Binding bindingTestDead(Queue testDead, DirectExchange defaultDLX) {
+	// 	return BindingBuilder.bind(testDead)
+	// 		.to(defaultDLX)
+	// 		.with(DelayTaskConfig.TEST.getDeadQueue());
+	// }
 }

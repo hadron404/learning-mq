@@ -16,9 +16,15 @@
 * 一些常见的RabbitMQ的使用方式
 
 ### 2 [RabbitMQ 全量配置说明](https://zhuanlan.zhihu.com/p/145336656)
-
 ### 3 [RabbitMQ 各种工作模式实现案例](https://cloud.tencent.com/developer/article/1775294)
 ### 4 [RabbitMQ 的工作模式图解](https://www.cnblogs.com/Jeely/p/10784013.html)
+### 5 [生产级消息队列配置](https://blog.csdn.net/swordcenter/article/details/101459376)
+### 6 [消费者补偿幂等问题](https://www.cnblogs.com/toov5/p/10287183.html)
+### 7 [RoutingKey详解](https://www.yisu.com/zixun/457019.html)
+### 8 [RabbitMQ消息发送与接收](https://www.cnblogs.com/qlqwjy/p/13923237.html)
+* Rabbit模型
+
+
 ## Exceptions
 
 IDEA中编译运行报 `无效的源发行版：17` 警告信息

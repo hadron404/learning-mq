@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class QueueInitialization {
 
 	@Bean
-	public Queue createTestQueueIfNotExist() {
+	public Queue test() {
 		return new Queue(QueueNames.TEST, true);
 	}
 }

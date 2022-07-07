@@ -17,11 +17,15 @@ public class QueueTTLInitialization {
 
 	@Bean
 	public Queue testTTL() {
-		return QueueBuilder.durable(DelayTaskConfig.TEST.getTtlQueue())
+		return delayTaskQueueBuild(DelayTaskConfig.TEST);
+	}
+
+	private Queue delayTaskQueueBuild(DelayTaskConfig delayTask) {
+		return QueueBuilder.durable(delayTask.getTtlQueue())
 			// x-dead-letter-exchange    这里声明当前队列绑定的死信交换机
-			.deadLetterExchange(DelayTaskConfig.TEST.getDlxName())
+			.deadLetterExchange(delayTask.getDlxName())
 			// x-dead-letter-routing-key  这里声明当前队列的死信路由key
-			.deadLetterRoutingKey(DelayTaskConfig.TEST.getDeadQueue())
+			.deadLetterRoutingKey(delayTask.getDeadQueue())
 			.build();
 		// x-message-ttl  声明队列的TTL
 	}

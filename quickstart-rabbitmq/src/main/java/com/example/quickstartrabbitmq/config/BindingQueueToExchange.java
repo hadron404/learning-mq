@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2022/7/7
  */
 @Configuration
-public class ExchangeQueueBinding {
+public class BindingQueueToExchange {
 
 	@Bean
 	Binding bindingTestDead(Queue testDead, DirectExchange defaultDLX) {

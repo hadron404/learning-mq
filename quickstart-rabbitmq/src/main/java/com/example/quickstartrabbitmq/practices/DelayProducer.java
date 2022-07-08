@@ -1,13 +1,10 @@
 package com.example.quickstartrabbitmq.practices;
 
 import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
+import com.example.quickstartrabbitmq.utils.SpecRabbitTemplate;
 import com.example.quickstartrabbitmq.workmode.Producer;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageProperties;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 /**
  * .
@@ -17,21 +14,13 @@ import java.time.LocalDateTime;
  */
 @Service
 public class DelayProducer implements Producer {
-	private final RabbitTemplate rabbitTemplate;
-
-	public DelayProducer(RabbitTemplate rabbitTemplate) {
-		this.rabbitTemplate = rabbitTemplate;
-	}
+	@Autowired
+	private SpecRabbitTemplate specRabbitTemplate;
 
 	@Override
 	public void send(String message) {
-		long ttl = DelayTaskConfig.TEST.getTtl();
-		MessageProperties messageProperties = new MessageProperties();
-		messageProperties.setExpiration(String.valueOf(ttl * 1000));
-		Message sendMessage = new Message(message.getBytes(), messageProperties);
-		System.out.println("Message publish at :" + LocalDateTime.now());
-		System.out.println("Expect receive at: " + LocalDateTime.now().plusSeconds(ttl));
-		this.rabbitTemplate.convertAndSend(DelayTaskConfig.TEST.getTtlQueue(), sendMessage);
+		this.specRabbitTemplate.publishMessageWithTTL
+			(DelayTaskConfig.TEST.getTtlQueue(), message, DelayTaskConfig.TEST.getTtl());
 	}
 
 }

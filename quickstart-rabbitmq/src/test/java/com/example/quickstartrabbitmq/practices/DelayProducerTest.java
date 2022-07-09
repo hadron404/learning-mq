@@ -12,6 +12,9 @@ class DelayProducerTest {
 
 	@Test
 	void send() {
-		producer.send("2");
+		producer.send("delay message 1", 10L);
+		producer.send("delay message 2", 20L);
+		producer.send("delay message 3", 30L);
+		// producer.send("delay No.", 10);
 	}
 }

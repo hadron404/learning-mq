@@ -26,4 +26,14 @@ public class SimpleProducer implements Producer {
 		String sendMsg = LocalDateTime.now() + " - Simple模式生产：" + message;
 		this.rabbitTemplate.convertAndSend(QueueNames.TEST, sendMsg);
 	}
+
+	@Override
+	public void send(String message, long ttl) {
+
+	}
+
+	@Override
+	public void send(String message, int sendTotal) {
+
+	}
 }

@@ -1,10 +1,7 @@
 package com.example.quickstartrabbitmq.api;
 
 import com.example.quickstartrabbitmq.practices.DelayProducer;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * .
@@ -22,10 +19,22 @@ public class MessageController {
 		this.delayProducer = delayProducer;
 	}
 
+	@PostMapping("/delay/batch/{totalSendCount}")
+	public String sendMessage(@PathVariable int totalSendCount, @RequestBody String message) {
+		delayProducer.send(message, totalSendCount);
+		return "成功";
+	}
+
 
 	@PostMapping("/delay")
 	public String sendMessage(@RequestBody String message) {
 		delayProducer.send(message);
+		return "成功";
+	}
+
+	@PostMapping("/delay/{ttl}")
+	public String sendMessage(@PathVariable long ttl, @RequestBody String message) {
+		delayProducer.send(message, ttl);
 		return "成功";
 	}
 }

@@ -1,6 +1,96 @@
-
-POST http://localhost:80/send/delay
+### send a message and expired after 10 seconds
+POST http://{{ip}}/send/delay/10
+Cache-Control: no-cache
 Content-Type: text/plain
+Accept: */*
 
-  "1"
+1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+### send a message and expired after 20 seconds
+POST http://{{ip}}/send/delay/20
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+
+2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+### send a message and expired after 30 seconds
+POST http://{{ip}}/send/delay/30
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+3
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### send a message and expired after 4 seconds
+POST http://{{ip}}/send/delay/4
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+4
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+### send a message and expired after 5 seconds
+POST http://{{ip}}/send/delay/5
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+
+5
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+### send a message and expired after 6 seconds
+POST http://{{ip}}/send/delay/6
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+6
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### batch send message
+POST http://{{ip}}/send/delay/batch/200
+Cache-Control: no-cache
+Content-Type: text/plain
+Accept: */*
+
+"delay message"
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
 

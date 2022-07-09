@@ -38,11 +38,11 @@ public class DelayConsumer {
 		@Payload String body,
 		@Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) throws IOException {
 		// 消息确认
-		AckUtil.ackOrNack(deliveryTag, channel, () -> {
+		// AckUtil.ackOrNack(deliveryTag, channel, () -> {
 			String msg = "Receive Message: [ " + body + " ] success at: [ " + LocalDateTime.now() + " ]";
 			// 处理消息
 			System.out.println(msg);
-		});
+		// });
 	}
 
 

@@ -30,6 +30,8 @@
 * Rabbit模型
 ### [通过 Delayed-message 插件实现延时任务](https://juejin.cn/post/6882747404894879758)
 
+### [IDEA HTTP 工具](https://www.jianshu.com/p/2404654d655a)
+
 ## Exceptions
 
 IDEA中编译运行报 `无效的源发行版：17` 警告信息

@@ -81,7 +81,7 @@ client.test("Request executed successfully", function() {
 %}
 
 ### batch send message
-POST http://{{ip}}/send/delay/batch/200
+POST http://{{ip}}/send/delay/batch/20
 Cache-Control: no-cache
 Content-Type: text/plain
 Accept: */*

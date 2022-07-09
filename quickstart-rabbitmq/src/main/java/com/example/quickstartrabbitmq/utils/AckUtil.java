@@ -12,12 +12,16 @@ import java.io.IOException;
  * @since 2022/7/8
  */
 public class AckUtil {
-	public void ackOrNack(Message message, Channel channel, Runnable runnable) throws IOException {
+	public static void ackOrNack(Message message, Channel channel, Runnable runnable) throws IOException {
+		ackOrNack(message.getMessageProperties().getDeliveryTag(), channel, runnable);
+	}
+
+	public static void ackOrNack(long deliveryTag, Channel channel, Runnable runnable) throws IOException {
 		try {
 			runnable.run();
-			channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+			channel.basicAck(deliveryTag, false);
 		} catch (Exception e) {
-			channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+			channel.basicNack(deliveryTag, false, true);
 		}
 	}
 }

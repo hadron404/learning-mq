@@ -16,6 +16,32 @@ docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq-management rabbitmq:ma
 此处port = 15672, ip= 127.0.0.1
 默认账号密码： guest/guest
 
+
+== docker 安装 rabbitmq-delayed-message-exchange 插件
+windows 下
+
+本地上传插件至 docker 容器内
+----
+docker cp .\rabbitmq_delayed_message_exchange-3.10.2.ez {containerId}:/plugins
+----
+
+进入容器内部，启用插件
+----
+# 进入容器
+docker exec -it {containerId} /bin/bash
+# 查看插件是否上传至此
+cd plugins
+ls
+# 启用插件
+rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+----
+
+重启 rabbitmq  容器
+----
+docker restart {containerId}
+----
+
+
 == 参考文献
 RabbitMQ 系列之三 - rabbitmq-management
 关于 rabbit management 的一些定义和概念
@@ -24,3 +50,7 @@ https://www.jianshu.com/p/7b6e575fd451
 Docker 系列之 RabbitMQ 安装部署教程
 安装过程说明比较清晰明朗 相关 docker 命令有足够的解释
 https://cloud.tencent.com/developer/article/1612598
+
+[Docker 安装 delayed-message-exchange 插件](https://juejin.cn/post/6882747404894879758)
+
+[rabbitmq-delayed-message-exchange 插件地址](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)

@@ -15,6 +15,6 @@
 
 
 基于 delay-message 插件实现
-[rabbitmq-delayed-message-exchange](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)
+
 
 针对第一种方案的缺点，通过 delay-message 插件实现延时任务，并解决时序问题。

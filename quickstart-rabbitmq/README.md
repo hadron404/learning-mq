@@ -28,7 +28,7 @@
 ### 12 [RabbitMQ延时任务实现](https://blog.csdn.net/Sadlay/article/details/87161615)
 ### 13 [动态创建Queue、Exchange、Binding](https://blog.csdn.net/qq_28533563/article/details/107025629)
 * Rabbit模型
-
+### [通过 Delayed-message 插件实现延时任务](https://juejin.cn/post/6882747404894879758)
 
 ## Exceptions
 

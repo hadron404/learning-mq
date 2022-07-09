@@ -3,7 +3,6 @@ package com.example.quickstartrabbitmq.config;
 import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,12 +13,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class QueueTTLInitialization {
-
-	// @Bean
-	// public Queue testTTL() {
-	// 	return QueueTTLInitialization.delayTaskQueueBuild(DelayTaskConfig.TEST);
-	// }
-
 	public static Queue delayTaskQueueBuild(DelayTaskConfig delayTask) {
 		return QueueBuilder.durable(delayTask.getTtlQueue())
 			// x-dead-letter-exchange    这里声明当前队列绑定的死信交换机

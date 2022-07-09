@@ -1,9 +1,9 @@
 package com.example.quickstartrabbitmq.config;
 
-import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
+import com.example.quickstartrabbitmq.constants.QueueNames;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.CustomExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,4 +23,12 @@ public class BindingQueueToExchange {
 	// 		.to(defaultDLX)
 	// 		.with(DelayTaskConfig.TEST.getDeadQueue());
 	// }
+
+	@Bean
+	Binding bindingTestDead(Queue testDelay, CustomExchange delayExchange) {
+		return BindingBuilder.bind(testDelay)
+			.to(delayExchange)
+			.with(QueueNames.TEST_DELAY)
+			.noargs();
+	}
 }

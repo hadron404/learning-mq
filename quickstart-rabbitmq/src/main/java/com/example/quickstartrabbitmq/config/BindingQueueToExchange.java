@@ -24,11 +24,11 @@ public class BindingQueueToExchange {
 	// 		.with(DelayTaskConfig.TEST.getDeadQueue());
 	// }
 
-	@Bean
-	Binding bindingTestDead(Queue testDelay, CustomExchange delayExchange) {
-		return BindingBuilder.bind(testDelay)
-			.to(delayExchange)
-			.with(QueueNames.TEST_DELAY)
-			.noargs();
-	}
+	// @Bean
+	// Binding bindingTestDead(Queue testDelay, CustomExchange delayExchange) {
+	// 	return BindingBuilder.bind(testDelay)
+	// 		.to(delayExchange)
+	// 		.with(QueueNames.TEST_DELAY)
+	// 		.noargs();
+	// }
 }

@@ -1,10 +1,8 @@
 package com.example.quickstartrabbitmq.config;
 
+import com.example.quickstartrabbitmq.constants.DelayMessageConfig;
 import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -20,7 +18,7 @@ import java.util.Arrays;
  * @since 2022/7/7
  */
 @Configuration
-public class DelayTaskDynamicInitialization implements BeanFactoryPostProcessor {
+public class MQDynamicInitialization implements BeanFactoryPostProcessor {
 	/**
 	 * Spring应用上下文环境
 	 */
@@ -28,7 +26,7 @@ public class DelayTaskDynamicInitialization implements BeanFactoryPostProcessor 
 
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-		DelayTaskDynamicInitialization.beanFactory = beanFactory;
+		MQDynamicInitialization.beanFactory = beanFactory;
 	}
 
 	@Bean
@@ -48,6 +46,26 @@ public class DelayTaskDynamicInitialization implements BeanFactoryPostProcessor 
 				Binding binding = BindingBuilder.bind(deadLetterQueue).to(directExchange).with(i.getDeadQueue());
 				beanFactory.registerSingleton(deadLetterQueue.getName() + directExchange.getName(), binding);
 				// Map<String, Object> map = new HashMap<>();
+			});
+		return null;
+	}
+
+	@Bean
+	public Object initDelayMessage() {
+		Arrays.stream(DelayMessageConfig.values())
+			.forEach(i -> {
+				// 声明队列
+				Queue queue = new Queue(i.getQueue(), true);
+				beanFactory.registerSingleton(queue.getName(), queue);
+				// 声明交换机
+				CustomExchange exchange = DelayExchangeInitialization.getCustomExchange(i.getExchange());
+				beanFactory.registerSingleton(exchange.getName(), exchange);
+				// 声明队列和交换的绑定关系
+				Binding binding = BindingBuilder.bind(queue)
+					.to(exchange)
+					.with(i.getRoutingKey())
+					.noargs();
+				beanFactory.registerSingleton(queue.getName() + exchange.getName(), binding);
 			});
 		return null;
 	}

@@ -7,6 +7,8 @@ package com.example.quickstartrabbitmq.constants;
  * @since 2022/7/6
  */
 public class QueueNames {
+	public static final String TEST_DELAY = "queue.test.delay";
+
 	public static final String TEST = "queue.test";
 
 	/**

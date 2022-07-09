@@ -33,7 +33,7 @@ public class DelayProducer implements Producer {
 	public void send(String message, long ttl) {
 		// this.specRabbitTemplate.publishMessageWithTTL
 		// 	(DelayTaskConfig.TEST.getTtlQueue(), message, ttl);
-		this.specRabbitTemplate.publish(ExchangeName.DELAY_EXCHANGE.getName(), QueueNames.TEST_DELAY,
+		this.specRabbitTemplate.publish(ExchangeName.DELAY_MESSAGE_DEFAULT.getName(), QueueNames.TEST_DELAY,
 			message, (int) ttl);
 	}
 

@@ -26,7 +26,6 @@ public class DelayProducer implements Producer {
 	@Override
 	public void send(String message) {
 		send(message, DelayTaskConfig.TEST.getTtl());
-
 	}
 
 	@Override

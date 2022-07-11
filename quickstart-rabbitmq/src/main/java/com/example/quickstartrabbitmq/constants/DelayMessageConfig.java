@@ -6,6 +6,7 @@ package com.example.quickstartrabbitmq.constants;
  * @author zhouqiang
  * @since 2022/7/9
  */
+
 public enum DelayMessageConfig {
 
 

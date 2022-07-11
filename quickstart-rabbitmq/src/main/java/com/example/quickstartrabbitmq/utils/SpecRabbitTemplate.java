@@ -1,10 +1,7 @@
 package com.example.quickstartrabbitmq.utils;
 
 import org.springframework.amqp.AmqpException;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessagePostProcessor;
-import org.springframework.amqp.core.MessageProperties;
-import org.springframework.amqp.core.MessagePropertiesBuilder;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
@@ -51,6 +48,8 @@ public class SpecRabbitTemplate {
 
 		@Override
 		public Message postProcessMessage(Message message) throws AmqpException {
+			//设置消息持久化
+			message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
 			// 设置延迟时间
 			message.getMessageProperties().setDelay(seconds * 1000);
 			// 两种方式设置延迟时间同样

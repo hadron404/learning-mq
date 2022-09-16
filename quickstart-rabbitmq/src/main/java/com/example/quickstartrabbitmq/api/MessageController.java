@@ -1,7 +1,10 @@
 package com.example.quickstartrabbitmq.api;
 
-import com.example.quickstartrabbitmq.practices.DelayProducer;
-import org.springframework.web.bind.annotation.*;
+import com.example.quickstartrabbitmq.workmode.simple.SimpleProducer;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * .
@@ -13,28 +16,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/send")
 public class MessageController {
 
-	private final DelayProducer delayProducer;
+	private final SimpleProducer simpleProducer;
 
-	public MessageController(DelayProducer delayProducer) {
-		this.delayProducer = delayProducer;
+	public MessageController(SimpleProducer simpleProducer) {
+		this.simpleProducer = simpleProducer;
 	}
 
-	@PostMapping("/delay/batch/{totalSendCount}")
-	public String sendMessage(@PathVariable int totalSendCount, @RequestBody String message) {
-		delayProducer.send(message, totalSendCount);
-		return "成功";
-	}
-
-
-	@PostMapping("/delay")
+	@PostMapping()
 	public String sendMessage(@RequestBody String message) {
-		delayProducer.send(message);
-		return "成功";
-	}
-
-	@PostMapping("/delay/{ttl}")
-	public String sendMessage(@PathVariable long ttl, @RequestBody String message) {
-		delayProducer.send(message, ttl);
+		simpleProducer.send(message);
 		return "成功";
 	}
 }

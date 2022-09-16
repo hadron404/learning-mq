@@ -7,8 +7,7 @@ package com.example.quickstartrabbitmq.constants;
  * @since 2022/7/6
  */
 public enum ExchangeName {
-	DELAY_MESSAGE_DEFAULT("delay.message.default"),
-	DLX("dlx.default");
+	TEST_EXCHANGE("test.exchange");
 
 	ExchangeName(String name) {
 		this.name = name;

@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SimpleConsumer {
 	// 监听的队列名
-	@RabbitListener(queues = QueueNames.TEST)
+	// @RabbitListener(queues = QueueNames.TEST)
 	public void process(String name) {
-		System.out.println("Simple模式消费：" + name);
+		System.out.println("进行 Simple 模式消费：" + name);
 	}
 }

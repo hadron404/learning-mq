@@ -23,7 +23,7 @@ public class SimpleProducer implements Producer {
 	}
 
 	public void send(String message) {
-		String sendMsg = LocalDateTime.now() + " - Simple模式生产：" + message;
+		String sendMsg = LocalDateTime.now() + " - 源于 Simple 模式生产：" + message;
 		this.rabbitTemplate.convertAndSend(QueueNames.TEST, sendMsg);
 	}
 

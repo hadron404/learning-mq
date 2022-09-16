@@ -1,5 +1,8 @@
 package com.example.quickstartrabbitmq.config;
 
+import com.example.quickstartrabbitmq.constants.ExchangeName;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -19,8 +22,8 @@ public class ExchangeInitialization {
 	 * DirectExchange：按照routing-key分发到指定队列
 	 * TopicExchange：多关键字匹配
 	 */
-	// @Bean
-	// public DirectExchange defaultDLX() {
-	// 	return new DirectExchange(ExchangeName.DLX.getName(), true, false);
-	// }
+	@Bean
+	public DirectExchange testExchange() {
+		return new DirectExchange(ExchangeName.TEST_EXCHANGE.getName(), true, false);
+	}
 }

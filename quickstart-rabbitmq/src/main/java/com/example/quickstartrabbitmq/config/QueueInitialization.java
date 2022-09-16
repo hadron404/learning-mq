@@ -18,9 +18,4 @@ public class QueueInitialization {
 	public Queue test() {
 		return new Queue(QueueNames.TEST, true);
 	}
-
-	@Bean
-	public Queue testDelay() {
-		return new Queue(QueueNames.TEST_DELAY, true);
-	}
 }

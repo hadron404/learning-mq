@@ -1,0 +1,25 @@
+=== Declare Queue
+
+include::../constants/QueueNames.java[lines=18]
+
+include::../constants/QueueNames.java[lines=23]
+
+=== Declare Exchange and Queue Mapping
+include::../constants/DelayMessageConfig.java[lines=9..-1]
+
+
+=== Initialization
+
+include::../config/MQDynamicInitialization.java[lines=53..71]
+
+=== Producer
+
+include::DelayProducer.java[lines=33..39]
+
+==== SpecRabbitTemplate.java
+include::../utils/SpecRabbitTemplate.java[lines=35..41]
+
+
+=== Consumer
+
+include::DelayConsumer.java[lines=36..48]

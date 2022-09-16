@@ -1,7 +1,7 @@
-package com.example.quickstartrabbitmq.config;
+package com.example.delay.config;
 
-import com.example.quickstartrabbitmq.constants.DelayMessageConfig;
-import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
+import com.example.delay.constants.DelayMessageConfig;
+import com.example.delay.constants.DelayTaskConfig;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @author zhouqiang
  * @since 2022/7/7
  */
-// @Configuration
+@Configuration
 public class MQDynamicInitialization implements BeanFactoryPostProcessor {
 	/**
 	 * Spring应用上下文环境

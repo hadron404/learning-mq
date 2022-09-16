@@ -39,9 +39,13 @@
 * Rabbit模型
 ### [通过 Delayed-message 插件实现延时任务](https://juejin.cn/post/6882747404894879758)
 
+### [RabbitMQ的应用场景以及基本原理介绍](https://blog.csdn.net/whoamiyang/article/details/54954780)
+
 ### [IDEA HTTP 工具](https://www.jianshu.com/p/2404654d655a)
 
 ### [SpringBoot整合RabbitMQ之手动消息确认（ACK）](https://blog.csdn.net/qq_38322527/article/details/103701101)
+### [https://blog.csdn.net/gu131007416553/article/details/120934738](消息队列积压、重复、丢失问题)
+
 ## Exceptions
 
 ### IDEA中编译运行报 `无效的源发行版：17` 警告信息
@@ -51,3 +55,6 @@
 
 ### Channel shutdown: channel error；
 https://blog.csdn.net/qq_18671415/article/details/112037977
+
+### rabbitmq reply-text=PRECONDITION_FAILED - unknown delivery tag 1
+https://my.oschina.net/hengbao666/blog/5069605

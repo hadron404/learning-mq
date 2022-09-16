@@ -1,6 +1,6 @@
-package com.example.quickstartrabbitmq.config;
+package com.example.delay.config;
 
-import com.example.quickstartrabbitmq.constants.DelayTaskConfig;
+import com.example.delay.constants.DelayTaskConfig;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author zhouqiang
  * @since 2022/7/7
  */
-// @Configuration
+@Configuration
 public class QueueTTLInitialization {
 	public static Queue delayTaskQueueBuild(DelayTaskConfig delayTask) {
 		return QueueBuilder.durable(delayTask.getTtlQueue())

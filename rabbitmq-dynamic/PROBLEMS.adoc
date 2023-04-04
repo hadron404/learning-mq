@@ -1,0 +1,6 @@
+一、SpringBoot 应用无法启动，未能自动创建Queue、Exchange、Binding
+可能是rabbitMQ的插件未加载，我使用了 x-delay-message 属性，但是 rabbitMQ 未加载相应的插件，导致无法创建。
+
+二、动态增减监听队列，耗时过长
+使用docker部署的rabbitMQ，同时提供两个端点，1.在发送消息时同时创建队列（如果队列不存在），
+2.移除某个运行时监听队列

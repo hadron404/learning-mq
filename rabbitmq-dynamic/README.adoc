@@ -1,0 +1,17 @@
+
+== 背景
+
+有N个企业，运营人员会对其企业下客户延时发送特定消息，由于消息发送限制频率，次数，运营人员需要在特定情况下，停止发送已设置的延时消息。
+
+* 如公司A的运营人员，分别设置了两次向100位客户发送特定消息，一次十分钟后，一次十五分钟后，运营人员在12分钟时收到通知需要将后续的所有消息暂停发送。
+* 同时公司B的运营人员，同样设置了类似消息发送规则。
+
+额外要求如下：
+
+1. 公司A的消息暂停不影响公司B的消息。
+
+
+== 参考资料
+
+* https://docs.spring.io/spring-amqp/docs/current/reference/html/[Spring AMQP Documentation]
+* https://blog.csdn.net/qiuxinfa123/article/details/120241184[RabbitMQ：动态增减监听队列]

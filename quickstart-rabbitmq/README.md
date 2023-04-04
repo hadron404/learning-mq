@@ -46,6 +46,8 @@
 ### [SpringBoot整合RabbitMQ之手动消息确认（ACK）](https://blog.csdn.net/qq_38322527/article/details/103701101)
 ### [消息队列积压、重复、丢失问题](https://blog.csdn.net/gu131007416553/article/details/120934738)
 
+[RabbitMQ 延时队列插件安装方式]https://blog.csdn.net/zhuyu19911016520/article/details/103633482
+
 ## Exceptions
 
 ### IDEA中编译运行报 `无效的源发行版：17` 警告信息

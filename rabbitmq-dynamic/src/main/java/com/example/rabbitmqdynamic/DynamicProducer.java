@@ -18,6 +18,6 @@ public class DynamicProducer {
 
 	public void send(String source, String message) {
 		Queue queue = queueManager.createQueueIfAbsent(source);
-		this.rabbitTemplate.publish(DELAY_EXCHANGE, queue.getName(), message, 30);
+		this.rabbitTemplate.publish(DELAY_EXCHANGE, queue.getName(), message, 10);
 	}
 }

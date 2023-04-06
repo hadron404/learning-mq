@@ -16,23 +16,26 @@ public class BrokerConfig {
 	public final static String DYNAMIC_QUEUE = "queue.delay.dynamic";
 	public final static String DELAY_EXCHANGE = "exchange.delay.dynamic";
 
-	public BrokerConfig(DynamicConsumer dynamicConsumer) {
+	public BrokerConfig(DynamicConsumer dynamicConsumer, CachingConnectionFactory connectionFactory) {
 		this.dynamicConsumer = dynamicConsumer;
+		this.connectionFactory = connectionFactory;
 	}
 
-	@Bean
-	public CachingConnectionFactory connectionFactory() {
-		return new CachingConnectionFactory("localhost");
-	}
+	// @Bean
+	// public CachingConnectionFactory connectionFactory() {
+	// 	return new CachingConnectionFactory("192.168.70.111");
+	// }
 
+
+	private final CachingConnectionFactory connectionFactory;
 	@Bean
 	public RabbitAdmin amqpAdmin() {
-		return new RabbitAdmin(connectionFactory());
+		return new RabbitAdmin(connectionFactory);
 	}
 
 	@Bean
 	public RabbitTemplate rabbitTemplate() {
-		return new RabbitTemplate(connectionFactory());
+		return new RabbitTemplate(connectionFactory);
 	}
 
 
@@ -62,11 +65,15 @@ public class BrokerConfig {
 
 	@Bean
 	public SimpleMessageListenerContainer simpleMessageListenerContainer() {
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
+		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory);
 		container.setConcurrentConsumers(1);
 		container.setMaxConcurrentConsumers(1);
 		container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
 		// 由于该方法限制队列名不能为空，设置一个初始队列
+		// TODO 若服务重启，监听容器会丢失监听队列信息，需要做额外工作
+		// 1.可通过 api 获取该交换机的所有绑定信息进行初始化绑定
+		// 2.通过数据库存储该交换机绑定的队列信息
+		// 3.每次发送消息时判断监听容器是否监听当前队列，未监听加入监听
 		container.setQueueNames(DYNAMIC_QUEUE);
 		container.setMessageListener(dynamicConsumer);
 		return container;

@@ -15,3 +15,5 @@
 
 * https://docs.spring.io/spring-amqp/docs/current/reference/html/[Spring AMQP Documentation]
 * https://blog.csdn.net/qiuxinfa123/article/details/120241184[RabbitMQ：动态增减监听队列]
+* https://www.jianshu.com/p/6ba98bdabcb0[RabbitAdmin]
+* https://blog.csdn.net/qq_34012659/article/details/102519455[RabbitMQ API Usages]

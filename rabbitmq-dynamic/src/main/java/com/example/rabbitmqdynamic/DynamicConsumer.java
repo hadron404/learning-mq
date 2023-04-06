@@ -5,6 +5,8 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 /**
  * .
  *
@@ -19,7 +21,7 @@ public class DynamicConsumer implements ChannelAwareMessageListener {
 		try {
 			String consumerQueue = message.getMessageProperties().getConsumerQueue();
 			String msg = new String(message.getBody());
-			System.out.println("DynamicConsumer 收到 "+consumerQueue+" 队列消息 "+msg);
+			System.out.println(LocalDateTime.now() + " DynamicConsumer 收到 " + consumerQueue + " 队列消息 " + msg);
 			channel.basicAck(deliveryTag, true);
 		} catch (Exception e) {
 			channel.basicReject(deliveryTag, false);

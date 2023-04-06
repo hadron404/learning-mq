@@ -1,0 +1,14 @@
+
+### Send a message from source and queue will create if queue is not exist.
+POST http://{{ip}}:80/send/{{source}}
+Content-Type: text/plain
+
+123456
+
+<> 2023-04-06T093132.200.txt
+
+
+### Remove and delete queue from source in rabbitmq
+POST http://{{ip}}:80/send/{{source}}/stop
+
+<> 2023-04-06T094035.200.txt
